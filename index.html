@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalyta Rodrigues — Portfólio</title>
+<meta name="description" content="Portfólio de Kalyta Rodrigues de Almeida — Desenvolvedora Web & Mobile, UX Design e automação de dados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #12202d;
+    --bg-alt: #17293a;
+    --card: #1a2b3c;
+    --border: #2f4356;
+    --text: #f5f5dc;
+    --text-dim: #b3ad93;
+    --accent: #d4af37;
+    --accent-2: #b8860b;
+    --accent-soft: rgba(212,175,55,0.14);
+    --font-head: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(14,13,15,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 68px;
+  }
+  .brand{ font-family: var(--font-head); font-weight:700; font-size:1.05rem; letter-spacing:0.02em; }
+  .brand span{ color: var(--accent); }
+  .navlinks{ display:flex; gap: 28px; font-size: 0.92rem; color: var(--text-dim); }
+  .navlinks a:hover{ color: var(--text); }
+
+  .hero{ padding: 96px 0 72px; }
+  .hero-grid{ display:flex; align-items:center; gap: 48px; justify-content:space-between; }
+  .hero-grid > div{ flex: 1; min-width: 280px; }
+  .hero-photo{
+    width: 220px; height: 220px; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--accent); flex-shrink: 0;
+  }
+  @media (max-width: 760px){
+    .hero-grid{ flex-direction: column-reverse; }
+    .hero-photo{ width: 160px; height: 160px; }
+  }
+  .eyebrow{
+    display:inline-block; font-size:0.8rem; color: var(--accent);
+    border: 1px solid var(--accent-soft); background: var(--accent-soft);
+    padding: 5px 14px; border-radius: 999px; margin-bottom: 22px;
+    letter-spacing: 0.03em;
+  }
+  h1{
+    font-family: var(--font-head); font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    line-height: 1.15; max-width: 720px;
+  }
+  h1 .accent{ color: var(--accent); }
+  .lede{
+    margin-top: 20px; max-width: 560px; color: var(--text-dim); font-size: 1.05rem;
+  }
+  .cta-row{ display:flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .btn{
+    padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.92rem;
+    border: 1px solid transparent; transition: transform .15s ease, border-color .15s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); }
+  .btn-primary{ background: var(--accent); color: var(--bg); }
+  .btn-ghost{ border-color: var(--border); color: var(--text); }
+  .btn-ghost:hover{ border-color: var(--accent); }
+
+  section{ padding: 64px 0; border-top: 1px solid var(--border); }
+  h2{ font-family: var(--font-head); font-size: 1.6rem; margin-bottom: 8px; }
+  .section-sub{ color: var(--text-dim); margin-bottom: 40px; max-width: 560px; }
+
+  .about-body{ max-width: 640px; color: var(--text-dim); font-size: 1rem; }
+  .about-body strong{ color: var(--text); font-weight: 600; }
+
+  .skill-groups{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 28px; margin-top: 8px; }
+  .skill-group h3{ font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 14px; }
+  .pill-row{ display:flex; flex-wrap:wrap; gap: 8px; }
+  .pill{
+    font-size: 0.85rem; background: var(--card); border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 999px; color: var(--text);
+  }
+
+  .projects-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 22px; }
+  .card{
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 26px; display:flex; flex-direction:column; gap: 14px;
+  }
+  .card.soon{ border-style: dashed; opacity: 0.65; }
+  .card-tag{
+    align-self:flex-start; font-size: 0.72rem; color: var(--accent);
+    background: var(--accent-soft); padding: 3px 10px; border-radius: 999px;
+    letter-spacing: 0.03em; text-transform: uppercase;
+  }
+  .card h3{ font-family: var(--font-head); font-size: 1.15rem; }
+  .card-shot{ border-radius: 10px; border: 1px solid var(--border); aspect-ratio: 16/9; object-fit: cover; object-position: top; }
+  .phone-row{ display:flex; gap: 10px; }
+  .phone-shot{ border-radius: 12px; border: 1px solid var(--border); width: 50%; }
+  .card p{ color: var(--text-dim); font-size: 0.92rem; }
+  .card-link{ font-size: 0.88rem; font-weight: 600; color: var(--accent); margin-top: auto; }
+  .card-link:hover{ text-decoration: underline; }
+
+  .mock-dash{
+    border: 1px solid var(--border); border-radius: 10px; overflow:hidden; background: #f4f1ea;
+    color: #2a2630; font-size: 0.62rem; user-select: none;
+  }
+  .mock-dash .mock-top{ background:#efe9dd; padding:6px 10px; display:flex; gap:6px; align-items:center; border-bottom:1px solid #ddd4c2; }
+  .mock-dash .dot{ width:7px; height:7px; border-radius:50%; background:#cbb98a; }
+  .mock-dash .mock-body{ display:flex; }
+  .mock-dash .mock-side{ width: 30%; background:#1e1b23; padding:10px 8px; color:#cfc7d6; }
+  .mock-dash .mock-side .side-item{ padding:5px 6px; border-radius:5px; margin-bottom:4px; }
+  .mock-dash .mock-side .side-item.active{ background:#3a3346; color:#fff; }
+  .mock-dash .mock-main{ flex:1; padding: 10px; }
+  .mock-stats{ display:flex; gap:6px; margin-bottom:8px; }
+  .mock-stat{ flex:1; background:#fff; border:1px solid #e7e0d0; border-radius:6px; padding:6px 8px; }
+  .mock-stat b{ display:block; font-size: 0.85rem; }
+  .mock-table{ width:100%; border-collapse: collapse; background:#fff; border-radius:6px; overflow:hidden; }
+  .mock-table th{ text-align:left; font-weight:600; color:#7a7286; padding:5px 8px; border-bottom:1px solid #eee; }
+  .mock-table td{ padding:5px 8px; border-bottom:1px solid #f2f0ea; }
+  .badge-ok{ color:#3a8a5c; background:#e4f5ea; padding:1px 6px; border-radius:999px; }
+  .mock-caption{ font-size: 0.72rem; color: var(--text-dim); margin-top: -4px; }
+
+  .mock-study{ background:#161129; color:#e4defa; }
+  .mock-study .mock-top{ background:#1e1839; border-bottom:1px solid #322a54; }
+  .study-body{ padding:10px; }
+  .study-tabs{ display:flex; gap:10px; border-bottom:1px solid #322a54; padding-bottom:6px; margin-bottom:8px; }
+  .study-tab{ font-size:0.65rem; color:#a89bd6; }
+  .study-tab.active{ color:#c9a6ff; font-weight:600; border-bottom:2px solid #c9a6ff; padding-bottom:5px; }
+  .study-focus{ background:#1e1839; border-radius:6px; padding:8px; margin-bottom:8px; }
+  .study-focus small{ display:block; color:#8a7cbf; font-size:0.55rem; letter-spacing:0.05em; }
+  .study-focus b{ display:block; color:#c9a6ff; font-size:0.8rem; margin:2px 0; }
+  .study-focus span{ color:#a89bd6; }
+  .study-stats{ display:flex; gap:6px; }
+  .study-stat{ flex:1; background:#1e1839; border-radius:6px; padding:6px; text-align:center; }
+  .study-stat b{ display:block; color:#7ee7c7; font-size:0.85rem; }
+
+  .mock-gp{ background:#f4f1ea; color:#2a2630; }
+  .mock-gp .mock-top{ background:#efe9dd; border-bottom:1px solid #ddd4c2; }
+  .gp-body{ padding:10px; display:flex; flex-direction:column; gap:6px; }
+  .gp-card{ display:flex; justify-content:space-between; background:#fff; border:1px solid #e7e0d0; border-radius:6px; padding:6px 8px; }
+  .gp-phase{ color:#9a7c1f; font-weight:600; }
+  .gp-phase.gp-late{ color:#b3432f; }
+  .gp-checklist{ background:#fff; border:1px solid #e7e0d0; border-radius:6px; padding:6px 8px; }
+  .gp-item{ display:flex; align-items:center; gap:6px; padding:2px 0; }
+  .gp-check{ width:9px; height:9px; border-radius:3px; border:1px solid #cbb98a; display:inline-block; }
+  .gp-check.done{ background:#3a8a5c; border-color:#3a8a5c; }
+
+  footer{ border-top: 1px solid var(--border); padding: 40px 0; }
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 16px; }
+  .foot-links{ display:flex; gap: 22px; }
+  .foot-links a{ color: var(--text-dim); font-size: 0.9rem; }
+  .foot-links a:hover{ color: var(--accent); }
+  .copyright{ color: var(--text-dim); font-size: 0.82rem; }
+
+  @media (max-width: 640px){
+    .navlinks{ display:none; }
+    .hero{ padding: 64px 0 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Kalyta <span>Rodrigues</span></div>
+    <div class="navlinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#skills">Skills</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Dev · UX Design · Automação de Dados</span>
+      <h1>Eu construo produtos <span class="accent">do código à interface</span>.</h1>
+      <p class="lede">Desenvolvedora web e mobile com passagem por UX Design e automação de dados. Gosto de pegar um problema real e levar até uma tela funcional — de um SaaS de gestão a um app de tarefas.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+        <a class="btn btn-ghost" href="#contato">Entrar em contato</a>
+      </div>
+    </div>
+    <img class="hero-photo" src="assets/foto.jpg" alt="Foto de Kalyta Rodrigues de Almeida">
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap">
+    <h2>Sobre</h2>
+    <p class="about-body">
+      Sou desenvolvedora há <strong>2 anos</strong>, atualmente Assistente de Sistemas e estudante de
+      <strong>Análise e Desenvolvimento de Sistemas</strong>. Trabalho com JavaScript, Node.js e Flutter no
+      desenvolvimento de aplicações, e também atuo como freelancer em <strong>UX Design</strong> e em
+      automação/visualização de dados com <strong>Python e Power BI</strong>. TI se tornou minha paixão desde
+      muito jovem — gosto de projetos que resolvem um problema real de alguém, não só exercícios de curso.
+    </p>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <h2>Projetos</h2>
+    <p class="section-sub">Uma seleção de trabalhos próprios e para clientes.</p>
+
+    <div class="projects-grid">
+
+      <div class="card">
+        <span class="card-tag">Web · Cliente</span>
+        <h3>GabiInk Tattoo Studio</h3>
+        <img class="card-shot" src="assets/gabiink-preview.png" alt="Tela inicial do site GabiInk Tattoo Studio" loading="lazy">
+        <p>Site institucional para estúdio de tatuagem, com portfólio de trabalhos e contato direto pelas redes sociais. Desenvolvido para uma cliente real.</p>
+        <a class="card-link" href="https://gabiink-studio.github.io/site-gabi-ink/" target="_blank" rel="noopener">Ver site ao vivo →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">SaaS · Dashboard</span>
+        <h3>OrionStock</h3>
+        <p>Painel administrativo multi-tenant para gestão de estoque, vendas, caixa e relatórios, com controle de planos por cliente (MRR, status, vencimento).</p>
+        <div class="mock-dash" aria-hidden="true">
+          <div class="mock-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="mock-body">
+            <div class="mock-side">
+              <div class="side-item active">Dashboard</div>
+              <div class="side-item">Estoque</div>
+              <div class="side-item">Vendas</div>
+              <div class="side-item">Relatórios</div>
+            </div>
+            <div class="mock-main">
+              <div class="mock-stats">
+                <div class="mock-stat">Tenants<br><b>—</b></div>
+                <div class="mock-stat">MRR<br><b>R$ —</b></div>
+                <div class="mock-stat">Alertas<br><b>—</b></div>
+              </div>
+              <table class="mock-table">
+                <tr><th>Loja</th><th>Plano</th><th>Status</th></tr>
+                <tr><td>Loja Exemplo</td><td>Profissional</td><td><span class="badge-ok">Ativo</span></td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p class="mock-caption">Prévia recriada com dados fictícios — projeto contém dados reais de cliente e não é exibido publicamente.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">Mobile · Flutter</span>
+        <h3>NYX Tarefas</h3>
+        <div class="phone-row">
+          <img class="phone-shot" src="assets/nyx-calendario.png" alt="Tela de calendário do app NYX Tarefas" loading="lazy">
+          <img class="phone-shot" src="assets/nyx-tarefas.png" alt="Tela de lista de tarefas do app NYX Tarefas" loading="lazy">
+        </div>
+        <p>App de gerenciamento de tarefas diárias organizado por calendário, com prioridades, busca e animações de lista.</p>
+        <a class="card-link" href="https://github.com/kalyta-rodrigues/nyx_gerenciador" target="_blank" rel="noopener">Ver no GitHub →</a>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">Produtividade · Pessoal</span>
+        <h3>OrionStudy</h3>
+        <div class="mock-dash mock-study" aria-hidden="true">
+          <div class="mock-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="study-body">
+            <div class="study-tabs">
+              <span class="study-tab active">Hoje</span>
+              <span class="study-tab">Semana</span>
+              <span class="study-tab">Trilhas</span>
+            </div>
+            <div class="study-focus">
+              <small>FOCO DE HOJE</small>
+              <b>Área Exemplo</b>
+              <span>Meta: 90 min de estudo</span>
+            </div>
+            <div class="study-stats">
+              <div class="study-stat"><b>—%</b>Trilha A</div>
+              <div class="study-stat"><b>—%</b>Trilha B</div>
+              <div class="study-stat"><b>—%</b>Trilha C</div>
+            </div>
+          </div>
+        </div>
+        <p>Painel pessoal de organização de estudos, com trilhas, metas diárias/semanais e acompanhamento de progresso por área.</p>
+        <p class="mock-caption">Prévia recriada com dados fictícios — projeto contém anotações pessoais e não é exibido publicamente.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">Gestão · Interno</span>
+        <h3>Gestão de Projetos</h3>
+        <div class="mock-dash mock-gp" aria-hidden="true">
+          <div class="mock-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="gp-body">
+            <div class="gp-card"><span>Projeto Exemplo A</span><span class="gp-phase">Etapa 2/5</span></div>
+            <div class="gp-card"><span>Projeto Exemplo B</span><span class="gp-phase gp-late">Atrasado</span></div>
+            <div class="gp-checklist">
+              <div class="gp-item"><span class="gp-check"></span>Checklist item 1</div>
+              <div class="gp-item"><span class="gp-check done"></span>Checklist item 2</div>
+            </div>
+          </div>
+        </div>
+        <p>Sistema interno de gestão de projetos e checklists, com acompanhamento de etapas, prazos e histórico de atividades.</p>
+        <p class="mock-caption">Prévia recriada com dados fictícios — projeto contém dados reais de cliente e não é exibido publicamente.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">SaaS · Next.js</span>
+        <h3>Controle de Projetos</h3>
+        <div class="mock-dash mock-cp" aria-hidden="true">
+          <div class="mock-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="mock-body">
+            <div class="mock-side">
+              <div class="side-item active">Dashboard</div>
+              <div class="side-item">Projetos</div>
+              <div class="side-item">Reuniões</div>
+              <div class="side-item">Etapas</div>
+              <div class="side-item">Diário</div>
+              <div class="side-item">Usuários</div>
+            </div>
+            <div class="mock-main">
+              <div class="mock-stats">
+                <div class="mock-stat">Projetos<br><b>—</b></div>
+                <div class="mock-stat">Alertas<br><b>—</b></div>
+              </div>
+              <table class="mock-table">
+                <tr><th>Reunião</th><th>Data</th></tr>
+                <tr><td>Reunião Exemplo</td><td>—</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p>Plataforma de controle de projetos com dashboard, gestão de reuniões, etapas, diário de projeto e autenticação de usuários (NextAuth).</p>
+        <a class="card-link" href="https://github.com/kalyta-rodrigues/controle_projetos" target="_blank" rel="noopener">Ver no GitHub →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="section-sub">Tecnologias e ferramentas que uso no dia a dia.</p>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Front-end</h3>
+        <div class="pill-row">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">JavaScript (ES8)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Back-end & Mobile</h3>
+        <div class="pill-row">
+          <span class="pill">Node.js</span>
+          <span class="pill">Flutter / Dart</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Dados & Automação</h3>
+        <div class="pill-row">
+          <span class="pill">Python</span>
+          <span class="pill">Power BI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Design</h3>
+        <div class="pill-row">
+          <span class="pill">Figma</span>
+          <span class="pill">UX/UI Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="wrap foot-row">
+    <span class="copyright">© 2026 Kalyta Rodrigues de Almeida</span>
+    <div class="foot-links">
+      <a href="https://github.com/kalyta-rodrigues" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kalyta-almeida-146659163/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:kalytarodrigues.tech@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
