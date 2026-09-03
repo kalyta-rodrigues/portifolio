@@ -173,7 +173,9 @@
   .pill{
     font-size: 0.85rem; background: var(--card); border: 1px solid var(--border);
     padding: 6px 14px; border-radius: 999px; color: var(--text);
+    display:flex; align-items:center; gap:8px;
   }
+  .pill img{ width:16px; height:16px; display:block; }
 
   /* Portfolio */
   .filter-row{ display:flex; gap: 10px; flex-wrap: wrap; justify-content:center; margin-bottom: 36px; }
@@ -218,7 +220,11 @@
   .mock-dash .mock-side{ width: 30%; background:#1e1b23; padding:10px 8px; color:#cfc7d6; }
   .mock-dash .mock-side .side-item{ padding:5px 6px; border-radius:5px; margin-bottom:4px; }
   .mock-dash .mock-side .side-item.active{ background:#3a3346; color:#fff; }
-  .mock-dash .mock-main{ flex:1; padding: 10px; }
+  .mock-dash .mock-main{ flex:1; padding: 10px; display:flex; flex-direction:column; gap:8px; }
+  .mock-progress{ margin-top:auto; background:#fff; border:1px solid #e7e0d0; border-radius:6px; padding:6px 8px; }
+  .mock-progress .bar-label{ display:flex; justify-content:space-between; margin-bottom:4px; color:#7a7286; }
+  .mock-progress .bar{ background:#eee; border-radius:999px; height:6px; overflow:hidden; }
+  .mock-progress .bar i{ display:block; height:100%; background:#cbb98a; }
   .mock-stats{ display:flex; gap:6px; margin-bottom:8px; }
   .mock-stat{ flex:1; background:#fff; border:1px solid #e7e0d0; border-radius:6px; padding:6px 8px; }
   .mock-stat b{ display:block; font-size: 0.85rem; }
@@ -259,7 +265,8 @@
   footer{ border-top: 1px solid var(--border); padding: 32px 0; }
   .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 16px; }
   .foot-links{ display:flex; gap: 22px; }
-  .foot-links a{ color: var(--text-dim); font-size: 0.9rem; }
+  .foot-links a{ color: var(--text-dim); font-size: 0.9rem; display:flex; align-items:center; gap:6px; }
+  .foot-links a .icon{ width:16px; height:16px; }
   .foot-links a:hover{ color: var(--accent); }
   .copyright{ color: var(--text-dim); font-size: 0.82rem; }
 
@@ -428,6 +435,10 @@
                   <tr><th>Loja</th><th>Plano</th><th>Status</th></tr>
                   <tr><td>Loja Exemplo</td><td>Profissional</td><td><span class="badge-ok">Ativo</span></td></tr>
                 </table>
+                <div class="mock-progress">
+                  <div class="bar-label"><span>Uso do plano</span><span>72%</span></div>
+                  <div class="bar"><i style="width:72%"></i></div>
+                </div>
               </div>
             </div>
           </div>
@@ -497,6 +508,10 @@
                 <div class="gp-item"><span class="gp-check"></span>Checklist item 1</div>
                 <div class="gp-item"><span class="gp-check done"></span>Checklist item 2</div>
               </div>
+              <div class="mock-progress">
+                <div class="bar-label"><span>Progresso geral</span><span>58%</span></div>
+                <div class="bar"><i style="width:58%"></i></div>
+              </div>
             </div>
           </div>
         </div>
@@ -530,6 +545,10 @@
                   <tr><th>Reunião</th><th>Data</th></tr>
                   <tr><td>Reunião Exemplo</td><td>—</td></tr>
                 </table>
+                <div class="mock-progress">
+                  <div class="bar-label"><span>Etapas concluídas</span><span>4/6</span></div>
+                  <div class="bar"><i style="width:66%"></i></div>
+                </div>
               </div>
             </div>
           </div>
@@ -556,29 +575,29 @@
       <div class="skill-group">
         <h3>Front-end</h3>
         <div class="pill-row">
-          <span class="pill">HTML5</span>
-          <span class="pill">CSS3</span>
-          <span class="pill">JavaScript (ES8)</span>
+          <span class="pill"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="" loading="lazy">HTML5</span>
+          <span class="pill"><img src="https://cdn.simpleicons.org/css3/1572B6" alt="" loading="lazy">CSS3</span>
+          <span class="pill"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" loading="lazy">JavaScript (ES8)</span>
         </div>
       </div>
       <div class="skill-group">
         <h3>Back-end & Mobile</h3>
         <div class="pill-row">
-          <span class="pill">Node.js</span>
-          <span class="pill">Flutter / Dart</span>
+          <span class="pill"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="" loading="lazy">Node.js</span>
+          <span class="pill"><img src="https://cdn.simpleicons.org/flutter/02569B" alt="" loading="lazy">Flutter / Dart</span>
         </div>
       </div>
       <div class="skill-group">
         <h3>Dados & Automação</h3>
         <div class="pill-row">
-          <span class="pill">Python</span>
-          <span class="pill">Power BI</span>
+          <span class="pill"><img src="https://cdn.simpleicons.org/python/3776AB" alt="" loading="lazy">Python</span>
+          <span class="pill"><img src="https://cdn.simpleicons.org/powerbi/F2C811" alt="" loading="lazy">Power BI</span>
         </div>
       </div>
       <div class="skill-group">
         <h3>Design</h3>
         <div class="pill-row">
-          <span class="pill">Figma</span>
+          <span class="pill"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="" loading="lazy">Figma</span>
           <span class="pill">UX/UI Design</span>
         </div>
       </div>
@@ -591,9 +610,9 @@
     <h2>Vamos conversar</h2>
     <p class="section-sub" style="margin-left:auto;margin-right:auto;">Tem um projeto em mente? Fale comigo por qualquer um dos canais abaixo.</p>
     <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:kalytarodrigues.tech@gmail.com">Enviar email</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/kalyta-almeida-146659163/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-ghost" href="https://github.com/kalyta-rodrigues" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-primary" href="mailto:kalytarodrigues.tech@gmail.com"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>Enviar email</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/kalyta-almeida-146659163/" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v2"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/kalyta-rodrigues" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 3.5 5.4 3.8 5.4 3.8a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 10.2c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
     </div>
   </div>
 </section>
@@ -602,9 +621,9 @@
   <div class="wrap foot-row">
     <span class="copyright">© 2026 Kalyta Rodrigues de Almeida</span>
     <div class="foot-links">
-      <a href="https://github.com/kalyta-rodrigues" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/kalyta-almeida-146659163/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:kalytarodrigues.tech@gmail.com">Email</a>
+      <a href="https://github.com/kalyta-rodrigues" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 3.5 5.4 3.8 5.4 3.8a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 10.2c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+      <a href="https://www.linkedin.com/in/kalyta-almeida-146659163/" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v2"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      <a href="mailto:kalytarodrigues.tech@gmail.com"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>Email</a>
     </div>
   </div>
 </footer>
